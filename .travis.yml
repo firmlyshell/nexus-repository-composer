@@ -3,3 +3,13 @@ language: java
 cache:
   directories:
   - $HOME/.m2
+  
+deploy:
+  provider: releases
+  api_key:
+    secure: e60f414ca40c2671a238fe05fce64e7d8f9820d9
+  file: target/nexus-repository-composer-0.0.2.jar
+  skip_cleanup: true
+  on:
+    tags: true
+    all_branches: true
