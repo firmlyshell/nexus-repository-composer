@@ -9,12 +9,15 @@ cache:
 
 script:
   - mvn clean package -DskipTests=true
-  
+
+before_deploy:
+  - ls target/
+
 deploy:
   provider: releases
   api_key:
-    secure: 03431bd759ad6a8d8cb1600dc76934b7fa2cb4f0
-  file: target/nexus-repository-composer-0.0.2.jar
+    secure: "03431bd759ad6a8d8cb1600dc76934b7fa2cb4f0"
+  file: "target/nexus-repository-composer-0.0.2.jar"
   skip_cleanup: true
   on:
     tags: true
